@@ -1,27 +1,42 @@
-import { BiHomeAlt2 } from "react-icons/bi";
-import { RiTimeLine } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
+import { BiSolidHomeAlt2 } from "react-icons/bi";
+import { RiTimerLine } from "react-icons/ri";
 import { VscGraphLine } from "react-icons/vsc";
-import { NavLink } from "react-router";
 
 const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">
-          <BiHomeAlt2 />
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "text-green-900 font-bold" : ""
+          }
+        >
+          <BiSolidHomeAlt2 />
           Home
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/timeline">
-          <RiTimeLine />
+        <NavLink
+          to="/timeline"
+          className={({ isActive }) =>
+            isActive ? "text-green-900 font-bold" : ""
+          }
+        >
+          <RiTimerLine />
           TimeLine
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/state">
+        <NavLink
+          to="/state"
+          className={({ isActive }) =>
+            isActive ? "text-green-900 font-bold" : ""
+          }
+        >
           <VscGraphLine />
           State
         </NavLink>
@@ -33,7 +48,9 @@ const Navbar = () => {
     <div className="w-full">
       <div className="navbar bg-base-100 shadow-sm">
         <div className="flex-1">
-          <a className=" text-xl"><span className="font-bold">Keen</span>Keeper</a>
+          <a className="text-xl">
+            <span className="font-bold">Keen</span>Keeper
+          </a>
         </div>
 
         <div className="flex-none">
