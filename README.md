@@ -4,7 +4,7 @@ Miss You Friend is a relationship tracker application that helps users stay conn
 
 ## 🚀 Live Site
 
-🔗 https://your-live-link.com
+https://miss-u-friends.netlify.app/
 
 ## 🛠️ Technologies Used
 
@@ -20,18 +20,21 @@ Miss You Friend is a relationship tracker application that helps users stay conn
 ## ✨ Main Features
 
 ### 📌 Friend Profile Management
+
 Users can view detailed information about each friend, including profile picture, bio, tags, relationship goals, and contact status.
 
 ### 📌 Activity Timeline Tracking
+
 Every call, text, or video interaction is recorded and displayed in a timeline, allowing users to review their communication history.
 
 ### 📌 Statistics Dashboard
+
 The app visualizes communication activities with charts, making it easy to understand interaction patterns with friends.
 
 ## 👨‍💻 Author
 
 **Shah Alam**
 
--------------------------------------------------
+---
 
-💙 *Because friendships deserve attention.*
+💙 _Because friendships deserve attention._
