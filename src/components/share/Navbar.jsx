@@ -2,8 +2,11 @@ import { NavLink } from "react-router-dom";
 import { BiSolidHomeAlt2 } from "react-icons/bi";
 import { RiTimerLine } from "react-icons/ri";
 import { VscGraphLine } from "react-icons/vsc";
+import { TimelineContext } from "../../context/Context";
+import { useContext } from "react";
 
 const Navbar = () => {
+  const { timeline, setTimeline } = useContext(TimelineContext);
   const links = (
     <>
       <li>
@@ -26,7 +29,7 @@ const Navbar = () => {
           }
         >
           <RiTimerLine />
-          TimeLine
+          TimeLine({timeline.length})
         </NavLink>
       </li>
 

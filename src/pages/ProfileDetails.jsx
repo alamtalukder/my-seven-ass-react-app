@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Phone,
   MessageSquare,
@@ -9,22 +9,31 @@ import {
 } from "lucide-react";
 import { useLoaderData, useParams } from "react-router";
 import { toast } from "react-toastify";
+import { TimelineContext } from "../context/Context";
 
 const ProfileDetails = () => {
   const loadData = useLoaderData();
   const { id } = useParams();
   const user = loadData.find((user) => user.id === parseInt(id));
 
-  const handleCall = ()=>{
-    toast.success(`Calling ${user.name}...`); 
-  }; 
-  
-  const handleText = ()=>{
-    toast.success(`Texting ${user.name}...`); 
-  }; 
+  const { timeline, setTimeline } = useContext(TimelineContext);
 
-  const handleVideo = () => {
+  const handleCall = (type, userDetails) => { 
+    toast.success(`Calling ${user.name}...`);
+    const newData = { type, ...userDetails };
+    setTimeline([...timeline, newData]);
+  };
+
+  const handleText = (type, userDetails) => {
+    toast.success(`Texting ${user.name}...`);
+    const newData = { type, ...userDetails };
+    setTimeline([...timeline, newData]);
+  };
+
+  const handleVideo = (type, userDetails) => {
     toast.success(`Starting video call with ${user.name}...`);
+    const newData = { type, ...userDetails };
+    setTimeline([...timeline, newData]);
   };
 
   return (
@@ -116,21 +125,30 @@ const ProfileDetails = () => {
             </h2>
 
             <div className="grid md:grid-cols-3 gap-4">
-              <button onClick={handleCall} className="btn h-28 bg-base-100 border">
+              <button
+                onClick={() => handleCall("call", user)}
+                className="btn h-28 bg-base-100 border"
+              >
                 <div className="flex flex-col items-center gap-2">
                   <Phone size={30} />
                   <span>Call</span>
                 </div>
               </button>
 
-              <button onClick={handleText} className="btn h-28 bg-base-100 border">
+              <button
+                onClick={() => handleText("text", user)}
+                className="btn h-28 bg-base-100 border"
+              >
                 <div className="flex flex-col items-center gap-2">
                   <MessageSquare size={30} />
                   <span>Text</span>
                 </div>
               </button>
 
-              <button onClick={handleVideo} className="btn h-28 bg-base-100 border">
+              <button
+                onClick={() => handleVideo("video", user)}
+                className="btn h-28 bg-base-100 border"
+              >
                 <div className="flex flex-col items-center gap-2">
                   <Video size={30} />
                   <span>Video</span>

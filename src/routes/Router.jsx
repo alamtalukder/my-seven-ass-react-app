@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Timeline from "../pages/Timeline";
 import Erropage from "../pages/Erropage";
 import ProfileDetails from "../pages/ProfileDetails";
+import ChartPage from "../pages/ChartPage";
 
 
 export const router = createBrowserRouter([
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
           path: "/usersDetails/:id",
           element: <ProfileDetails/>, 
           loader: ()=> fetch("/friendsData.json"), 
+        }, 
+        {
+          path:"/state",
+          element: <ChartPage/>
         }
       
     ],
